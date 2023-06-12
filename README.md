@@ -17,9 +17,22 @@ Rhyme Finder is a simple tool that uses the RhymeBrain API to fetch rhyming word
 To use Rhyme Finder, you can call the `rhyme` function and provide a word to find rhymes for. Optionally, you can specify the maximum number of results to retrieve.
 
 ```python
-from rhyme_finder import rhyme
+import requests as rq
 
-result = rhyme("example", maxResults=10)
-print(result)```
+
+def rhyme(word: str, maxResults: str = "5"):
+    if word is None:
+        return None
+
+    maxResults = str(maxResults)
+    base_url = f'https://rhymebrain.com/talk?function=getRhymes&word={word}&maxResults={maxResults}'
+    response = rq.get(base_url)
+    data = response.json()
+    return data
+
+
+myWord = "apple"
+print(word, 10)
+```
 
 The rhyme function takes a word as the first argument and an optional maxResults parameter to specify the maximum number of rhymes to retrieve (default is 5). It returns a list of rhyming words in JSON format.
