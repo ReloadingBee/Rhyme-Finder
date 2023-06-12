@@ -31,7 +31,7 @@ def rhyme(word: str, maxResults: str = "5"):
     return data
 
 
-print("example", 10)
+print(rhyme("example", 10))
 ```
 
 The rhyme function takes a word as the first argument and an optional maxResults parameter to specify the maximum number of rhymes to retrieve (default is 5). It returns a list of rhyming words in JSON format.
